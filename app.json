@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "hackaton",
-    "slug": "hackaton",
+    "name": "makewaves-iligan-revengers",
+    "slug": "makewaves-iligan-revengers",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -15,9 +15,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
