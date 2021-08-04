@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
-import Color from "../constants/Color";
-import Separator from "./Separator";
+import Color from "../../constants/Color";
+import Separator from "../Separator";
 
 export default function InfoCard() {
   return (
@@ -12,16 +12,18 @@ export default function InfoCard() {
         <View style={styles.iconContainer}>
           <Feather name="star" size={20} color={Color.primary} />
         </View>
-        <Text style={styles.title}>Lorem ipsum dolor sit..</Text>
+        <Text style={styles.title}>
+          It seems like you are Out of Vitamin C Syrups!!
+        </Text>
       </View>
       <Separator marginVertical={6} />
       <Text style={styles.description}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis
-        sapien ut justo rutrum, eget interdum felis imperdiet.
+        According to your recent activity,it seems like you are running out of
+        Vitamin C syrups..Find a nearby pharmacy to buy one
       </Text>
       <Separator marginVertical={6} />
       <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={styles.buttonText}>Lorem ipsum dolor</Text>
+        <Text style={styles.buttonText}>FIND NEARBY PHARMACY</Text>
       </TouchableOpacity>
     </View>
   );
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "inter-700",
-    textTransform: "uppercase",
+    width: "90%",
     fontSize: 18,
   },
   description: {

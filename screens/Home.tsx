@@ -1,10 +1,13 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 
-import InfoCard from "../components/InfoCard";
+import InfoCard from "../components/cards/InfoCard";
 import Greetings from "../components/Greetings";
 import Container from "../layout/Container";
 import Separator from "../components/Separator";
+import RecentlyViewedCard from "../components/cards/RecentlyViewedCard";
+
+import data from "../data/recently-viewed";
 
 export default function HomeScreen() {
   return (
@@ -13,7 +16,19 @@ export default function HomeScreen() {
       <Separator />
       <InfoCard />
       <Separator />
-      <Text style={styles.title}>Home</Text>
+      <Text style={styles.title}>Recently Viewed</Text>
+      <Separator />
+      <View>
+        <FlatList
+          horizontal
+          data={data}
+          renderItem={({ item }) => <RecentlyViewedCard {...item} />}
+          ItemSeparatorComponent={() => (
+            <View style={{ marginHorizontal: 6 }} />
+          )}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      </View>
     </Container>
   );
 }
