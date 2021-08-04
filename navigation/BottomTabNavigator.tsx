@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     height: 60,
+    backgroundColor: Color.bottomTabBackground,
   },
   iconWrapper: {
     alignItems: "center",

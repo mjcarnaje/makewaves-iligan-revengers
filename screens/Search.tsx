@@ -1,11 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
+
+import Container from "../layout/Container";
 
 export default function SearchScreen() {
   return (
-    <View style={styles.container}>
+    <Container style={styles.container}>
       <Text style={styles.title}>Search</Text>
-    </View>
+    </Container>
   );
 }
 
@@ -14,6 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    padding: 12,
   },
   title: {
     fontSize: 20,

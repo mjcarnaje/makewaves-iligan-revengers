@@ -1,11 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import MapView from "react-native-maps";
+import Layout from "../constants/Layout";
+import Container from "../layout/Container";
 
 export default function MapScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Map</Text>
-    </View>
+    <Container style={styles.container}>
+      <MapView style={styles.map} />
+    </Container>
   );
 }
 
@@ -15,8 +18,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+  map: {
+    width: Layout.window.width,
+    height: Layout.window.height,
   },
 });
