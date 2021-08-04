@@ -6,12 +6,13 @@ import Greetings from "../components/Greetings";
 import Container from "../layout/Container";
 import Separator from "../components/Separator";
 import RecentlyViewedCard from "../components/cards/RecentlyViewedCard";
+import ArticleCard from "../components/cards/ArticleCard";
 
 import data from "../data/recently-viewed";
 
 export default function HomeScreen() {
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} isScrollable>
       <Greetings name="Tristan" />
       <Separator />
       <InfoCard />
@@ -29,6 +30,21 @@ export default function HomeScreen() {
           keyExtractor={(item) => item.id.toString()}
         />
       </View>
+      <Separator />
+      <Text style={styles.title}>Health Articles to Read</Text>
+      <Separator />
+      <View>
+        <FlatList
+          horizontal
+          data={data}
+          renderItem={({ item }) => <ArticleCard />}
+          ItemSeparatorComponent={() => (
+            <View style={{ marginHorizontal: 6 }} />
+          )}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      </View>
+      <Separator />
     </Container>
   );
 }
