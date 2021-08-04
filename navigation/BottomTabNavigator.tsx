@@ -1,74 +1,101 @@
 import React from "react";
+import { Text, View, StyleSheet } from "react-native";
 
-import { Ionicons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
 
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
+import HomeScreen from "../screens/Home";
+import { BottomTabParamList } from "../types";
+import Color from "../constants/Color";
+import SearchScreen from "../screens/Search";
+import MapScreen from "../screens/Map";
+import MedicationScreen from "../screens/Medication";
+
+type TabProps = {
+  name: keyof BottomTabParamList;
+  component: React.ComponentType<any>;
+  icon: React.ComponentProps<typeof Feather>["name"];
+}[];
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
+  const tabs: TabProps = [
+    {
+      name: "Home",
+      component: HomeScreen,
+      icon: "home",
+    },
+    {
+      name: "Search",
+      component: SearchScreen,
+      icon: "search",
+    },
+    {
+      name: "Map",
+      component: MapScreen,
+      icon: "map",
+    },
+    {
+      name: "Medication",
+      component: MedicationScreen,
+      icon: "heart",
+    },
+  ];
+
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: "#ff8a8a" }}
+      initialRouteName="Home"
+      tabBarOptions={{
+        showLabel: false,
+        activeTintColor: Color.tint,
+        style: styles.tabStyle,
+      }}
     >
-      <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="ios-code" color={color} />
-          ),
-        }}
-      />
+      {tabs.map(({ name, icon, component }, idx) => {
+        return (
+          <BottomTab.Screen
+            key={idx}
+            name={name}
+            component={component}
+            options={{
+              tabBarIcon: ({ color, focused }) => (
+                <View style={styles.iconWrapper}>
+                  <Feather
+                    name={icon}
+                    size={24}
+                    color={focused ? Color.tabIconSelected : color}
+                  />
+                  <Text
+                    style={[
+                      styles.label,
+                      { color: focused ? Color.tabIconSelected : color },
+                    ]}
+                  >
+                    {name}
+                  </Text>
+                </View>
+              ),
+            }}
+          />
+        );
+      })}
     </BottomTab.Navigator>
   );
 }
 
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof Ionicons>["name"];
-  color: string;
-}) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
-}
-
-const TabOneStack = createStackNavigator<TabOneParamList>();
-
-function TabOneNavigator() {
-  return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: "Tab One Title" }}
-      />
-    </TabOneStack.Navigator>
-  );
-}
-
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
-
-function TabTwoNavigator() {
-  return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: "Tab Two Title" }}
-      />
-    </TabTwoStack.Navigator>
-  );
-}
+const styles = StyleSheet.create({
+  tabStyle: {
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    height: 60,
+  },
+  iconWrapper: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  label: {
+    fontFamily: "inter-700",
+    fontSize: 12,
+  },
+});

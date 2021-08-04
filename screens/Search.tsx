@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function TabTwoScreen() {
+export default function SearchScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Iligan Revengers</Text>
+      <Text style={styles.title}>Search</Text>
     </View>
   );
 }
