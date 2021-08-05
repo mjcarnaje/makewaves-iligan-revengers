@@ -63,14 +63,14 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   date: {
-    fontFamily: "inter-600",
+    fontFamily: "inter-semibold",
     fontSize: 11,
   },
   title: {
-    fontFamily: "inter-700",
+    fontFamily: "inter-bold",
   },
   description: {
-    fontFamily: "inter-400",
+    fontFamily: "inter-regular",
   },
   footer: {
     flexDirection: "row",
@@ -89,13 +89,13 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   authorName: {
-    fontFamily: "inter-600",
+    fontFamily: "inter-semibold",
     color: Color.primary,
     fontSize: 12,
   },
   buttonContainer: {},
   buttonText: {
-    fontFamily: "inter-400",
+    fontFamily: "inter-regular",
     color: Color.primary,
     fontSize: 11,
   },

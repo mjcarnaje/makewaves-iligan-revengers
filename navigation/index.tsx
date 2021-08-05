@@ -7,6 +7,7 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import BottomTabNavigator from "./BottomTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { RootStackParamList } from "../types";
+import Drug from "../screens/Drug";
 
 export default function Navigation() {
   return (
@@ -22,6 +23,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen name="Drug" component={Drug} />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}

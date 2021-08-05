@@ -18,7 +18,7 @@ export default Greetings;
 const styles = StyleSheet.create({
   container: {},
   text: {
-    fontFamily: "inter-700",
+    fontFamily: "inter-bold",
     fontSize: 24,
     letterSpacing: -0.5,
   },

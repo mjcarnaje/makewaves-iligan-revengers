@@ -2,6 +2,7 @@ const primary = "#0659FD";
 const secondary = "#CDDEFF";
 
 export default {
+  black: "#000",
   text: "#1E1F20",
   secondaryText: "#4B4C4D",
   white: "#fff",

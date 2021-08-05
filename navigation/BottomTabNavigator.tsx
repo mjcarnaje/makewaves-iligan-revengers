@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   label: {
-    fontFamily: "inter-700",
+    fontFamily: "inter-bold",
     fontSize: 12,
   },
 });

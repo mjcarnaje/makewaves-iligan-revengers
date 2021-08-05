@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   title: {
-    fontFamily: "inter-700",
+    fontFamily: "inter-bold",
     width: "90%",
     fontSize: 18,
   },
   description: {
-    fontFamily: "inter-400",
+    fontFamily: "inter-regular",
     fontSize: 14,
     lineHeight: 20,
   },
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonText: {
-    fontFamily: "inter-700",
+    fontFamily: "inter-bold",
     color: Color.primary,
   },
 });

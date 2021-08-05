@@ -10,11 +10,12 @@ import Separator from "../Separator";
 interface Props {
   name: string;
   type: string;
+  onPress: () => void;
 }
 
-const RecentlyViewedCard: React.FC<Props> = ({ name, type }) => {
+const RecentlyViewedCard: React.FC<Props> = ({ name, type, onPress }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.imageContainer}>
         <Image resizeMode="contain" style={styles.image} source={example} />
       </View>
@@ -50,11 +51,11 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   name: {
-    fontFamily: "inter-700",
+    fontFamily: "inter-bold",
     fontSize: 13,
   },
   type: {
-    fontFamily: "inter-500",
+    fontFamily: "inter-medium",
     fontSize: 12,
   },
 });

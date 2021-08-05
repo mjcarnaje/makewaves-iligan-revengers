@@ -8,9 +8,15 @@ type Props = {
   children: React.ReactNode;
   style?: ViewStyle;
   isScrollable?: boolean;
+  additionalPaddingTop?: number;
 };
 
-const Container: React.FC<Props> = ({ children, style, isScrollable }) => {
+const Container: React.FC<Props> = ({
+  children,
+  style,
+  additionalPaddingTop = 16,
+  isScrollable,
+}) => {
   return (
     <SafeAreaInsetsContext.Consumer>
       {(insets) => (
@@ -19,7 +25,7 @@ const Container: React.FC<Props> = ({ children, style, isScrollable }) => {
             {
               flex: 1,
               backgroundColor: Color.white,
-              paddingTop: (insets?.top || 0) + 16,
+              paddingTop: (insets?.top || 0) + additionalPaddingTop,
             },
           ]}
         >

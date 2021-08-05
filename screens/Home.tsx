@@ -1,6 +1,9 @@
 import React from "react";
 import { View, StyleSheet, Text, FlatList } from "react-native";
 
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { CompositeNavigationProp, RouteProp } from "@react-navigation/native";
+
 import InfoCard from "../components/cards/InfoCard";
 import Greetings from "../components/Greetings";
 import Container from "../layout/Container";
@@ -9,8 +12,18 @@ import RecentlyViewedCard from "../components/cards/RecentlyViewedCard";
 import ArticleCard from "../components/cards/ArticleCard";
 
 import data from "../data/recently-viewed";
+import { BottomTabParamList, RootStackParamList } from "../types";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-export default function HomeScreen() {
+interface Props {
+  navigation: CompositeNavigationProp<
+    BottomTabNavigationProp<BottomTabParamList, "Home">,
+    StackNavigationProp<RootStackParamList>
+  >;
+  route: RouteProp<RootStackParamList, "Drug">;
+}
+
+const HomeScreen: React.FC<Props> = ({ navigation, route }) => {
   return (
     <Container style={styles.container} isScrollable>
       <Greetings name="Tristan" />
@@ -23,7 +36,12 @@ export default function HomeScreen() {
         <FlatList
           horizontal
           data={data}
-          renderItem={({ item }) => <RecentlyViewedCard {...item} />}
+          renderItem={({ item }) => (
+            <RecentlyViewedCard
+              {...item}
+              onPress={() => navigation.navigate("Drug")}
+            />
+          )}
           ItemSeparatorComponent={() => (
             <View style={{ marginHorizontal: 6 }} />
           )}
@@ -47,7 +65,9 @@ export default function HomeScreen() {
       <Separator />
     </Container>
   );
-}
+};
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
