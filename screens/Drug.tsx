@@ -16,8 +16,8 @@ import { BottomTabParamList, RootStackParamList } from "../types";
 
 interface Props {
   navigation: CompositeNavigationProp<
-    BottomTabNavigationProp<BottomTabParamList, "Home">,
-    StackNavigationProp<RootStackParamList>
+    BottomTabNavigationProp<RootStackParamList, "Drug">,
+    StackNavigationProp<BottomTabParamList>
   >;
   route: RouteProp<RootStackParamList, "Drug">;
 }

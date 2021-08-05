@@ -1,5 +1,4 @@
 import React from "react";
-import { FlatList, Text } from "react-native";
 import { StyleSheet, View } from "react-native";
 
 import Header from "../components/Header";
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
     padding: 16,
     width: Layout.window.width,
     aspectRatio: 1,
-    backgroundColor: Color.tertiary,
+    backgroundColor: Color.primary_light,
   },
   title: {
     fontSize: 20,
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
     height: 400,
     backgroundColor: Color.white,
     marginTop: -200,
-    borderTopLeftRadius: 80,
+    borderTopLeftRadius: 72,
   },
   tabContainer: {
     flexDirection: "row",

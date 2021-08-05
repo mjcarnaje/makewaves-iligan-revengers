@@ -1,6 +1,7 @@
 const primary = "#0659FD";
+const primary_light = "#3C7EFF";
 const secondary = "#CDDEFF";
-const tertiary = "#3C7EFF";
+const tertiary = "#FFCE50";
 
 export default {
   black: "#000",
@@ -13,6 +14,7 @@ export default {
   tabIconDefault: "#ccc",
   tabIconSelected: primary,
   primary,
+  primary_light,
   secondary,
   tertiary,
 };
