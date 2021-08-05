@@ -1,1 +1,1 @@
-## Make Waves 2021 Hackaton
+## Make Waves 2021 Hackathon
