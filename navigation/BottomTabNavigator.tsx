@@ -41,10 +41,11 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
-      tabBarOptions={{
-        showLabel: false,
-        activeTintColor: Color.tint,
-        style: styles.tabStyle,
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: Color.tint,
+        tabBarStyle: styles.tabStyle,
       }}
     >
       {tabs.map(({ name, icon, component }, idx) => {

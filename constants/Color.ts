@@ -7,7 +7,8 @@ const tertiary = "#FFCE50";
 export default {
   black: "#000",
   text: "#1E1F20",
-  gray: "#4B4C4D",
+  gray: "#AAAAAA",
+  light_gray: "#E7E7E7",
   white: "#fff",
   offWhite: "#F7F7F7",
   tint: primary,

@@ -13,6 +13,8 @@ import data from "../data/recently-viewed";
 import { BottomTabParamList, RootStackParamList } from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import MiniMap from "../components/cards/MiniMap";
+import SearchInput from "../components/inputs/SearchInput";
+import { TouchableOpacity } from "react-native";
 
 interface Props {
   navigation: CompositeNavigationProp<
@@ -27,7 +29,14 @@ const HomeScreen: React.FC<Props> = ({ navigation, route }) => {
     <Container style={styles.container} isScrollable>
       <Greetings name="Tristan" />
       <Separator />
-      <Text style={styles.title}>Recently Viewed</Text>
+      <SearchInput {...{ navigation }} />
+      <Separator marginVertical={14} />
+      <View style={styles.row}>
+        <Text style={styles.title}>Recently Viewed</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Medication")}>
+          <Text style={styles.readMore}>Read more</Text>
+        </TouchableOpacity>
+      </View>
       <Separator />
       <View>
         <FlatList
@@ -64,6 +73,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontFamily: "inter-bold",
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  readMore: {
+    fontSize: 12,
+    fontFamily: "inter-medium",
   },
 });

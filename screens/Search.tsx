@@ -1,49 +1,46 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
 
+import { RouteProp } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+import SearchCard from "../components/cards/SearchCard";
 import Header from "../components/Header";
-import Color from "../constants/Color";
-import Layout from "../constants/Layout";
+import SearchInput from "../components/inputs/SearchInput";
 import Container from "../layout/Container";
-import Tabs from "../components/tabs/Tabs";
+import { RootStackParamList } from "../types";
+import Separator from "../components/Separator";
 
-export default function SearchScreen() {
-  return (
-    <Container style={styles.container} isScrollable additionalPaddingTop={0}>
-      <View style={styles.header}>
-        <Header iconColor="gray" />
-      </View>
-      <View style={styles.content}>
-        <View style={styles.tabContainer}>
-          <Tabs data={[...Array(10).keys()]} />
-        </View>
-      </View>
-    </Container>
-  );
+interface Props {
+  navigation: StackNavigationProp<RootStackParamList, "Drug">;
+  route: RouteProp<RootStackParamList, "Drug">;
 }
 
+const SearchScreen: React.FC<Props> = ({ navigation }) => {
+  const [searchText, setSearchText] = useState("");
+
+  return (
+    <Container style={styles.container} additionalPaddingTop={0}>
+      <Header iconColor="gray" />
+      <SearchInput {...{ searchText, setSearchText }} />
+      <Separator />
+      <FlatList
+        data={searchText === "" ? [] : [...Array(4).keys()]}
+        keyExtractor={(item) => item.toString()}
+        renderItem={(item) => (
+          <SearchCard onPress={() => navigation.navigate("Drug")} />
+        )}
+        ItemSeparatorComponent={() => <Separator marginVertical={6} />}
+        showsVerticalScrollIndicator={false}
+      />
+    </Container>
+  );
+};
+
+export default SearchScreen;
+
 const styles = StyleSheet.create({
-  container: {},
-  header: {
-    padding: 16,
-    width: Layout.window.width,
-    aspectRatio: 1,
-    backgroundColor: Color.primary_light,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  content: {
-    height: 400,
-    backgroundColor: Color.white,
-    marginTop: -200,
-    borderTopLeftRadius: 72,
-  },
-  tabContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginLeft: 40,
-    height: 80,
+  container: {
+    paddingHorizontal: 16,
   },
 });

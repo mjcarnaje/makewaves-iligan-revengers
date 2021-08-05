@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+
 import MapView from "react-native-maps";
+
 import Layout from "../constants/Layout";
 import Container from "../layout/Container";
 
