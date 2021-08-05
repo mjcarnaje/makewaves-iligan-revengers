@@ -5,7 +5,7 @@ import { Asset } from "expo-asset";
 
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import { example, firstArticle, winterAvatar } from "../assets";
+import { example, firstArticle, notFound, winterAvatar } from "../assets";
 
 export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -16,7 +16,7 @@ export default function useCachedResources() {
       try {
         SplashScreen.preventAutoHideAsync();
 
-        await Asset.loadAsync([example, firstArticle, winterAvatar]);
+        await Asset.loadAsync([example, firstArticle, winterAvatar, notFound]);
 
         // Load fonts
         await Font.loadAsync({

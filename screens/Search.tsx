@@ -10,6 +10,7 @@ import SearchInput from "../components/inputs/SearchInput";
 import Container from "../layout/Container";
 import { RootStackParamList } from "../types";
 import Separator from "../components/Separator";
+import NotFound from "../components/cards/NotFound";
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, "Drug">;
@@ -24,15 +25,19 @@ const SearchScreen: React.FC<Props> = ({ navigation }) => {
       <Header iconColor="gray" />
       <SearchInput {...{ searchText, setSearchText }} />
       <Separator />
-      <FlatList
-        data={searchText === "" ? [] : [...Array(4).keys()]}
-        keyExtractor={(item) => item.toString()}
-        renderItem={(item) => (
-          <SearchCard onPress={() => navigation.navigate("Drug")} />
-        )}
-        ItemSeparatorComponent={() => <Separator marginVertical={6} />}
-        showsVerticalScrollIndicator={false}
-      />
+      {!!(searchText !== "") && (
+        <FlatList
+          contentContainerStyle={{ flexGrow: 1 }}
+          data={searchText.length > 4 ? [] : [...Array(5).keys()]}
+          keyExtractor={(item) => item.toString()}
+          renderItem={(item) => (
+            <SearchCard onPress={() => navigation.navigate("Drug")} />
+          )}
+          ItemSeparatorComponent={() => <Separator marginVertical={6} />}
+          ListEmptyComponent={<NotFound />}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
     </Container>
   );
 };
