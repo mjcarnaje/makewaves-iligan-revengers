@@ -5,7 +5,7 @@ interface Props {
   marginVertical?: number;
 }
 
-const Separator: React.FC<Props> = ({ marginVertical = 8 }) => {
+const Separator: React.FC<Props> = ({ marginVertical = 12 }) => {
   return <View style={{ marginVertical }} />;
 };
 

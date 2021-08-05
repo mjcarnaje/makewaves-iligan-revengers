@@ -19,7 +19,7 @@ const Container: React.FC<Props> = ({ children, style, isScrollable }) => {
             {
               flex: 1,
               backgroundColor: Color.white,
-              paddingTop: insets?.top,
+              paddingTop: (insets?.top || 0) + 16,
             },
           ]}
         >
