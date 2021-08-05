@@ -1,6 +1,7 @@
 const primary = "#0659FD";
 const primary_light = "#3C7EFF";
 const secondary = "#CDDEFF";
+const secondary_light = "#E6EEFF";
 const tertiary = "#FFCE50";
 
 export default {
@@ -16,5 +17,6 @@ export default {
   primary,
   primary_light,
   secondary,
+  secondary_light,
   tertiary,
 };

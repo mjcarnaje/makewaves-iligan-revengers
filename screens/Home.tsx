@@ -12,6 +12,7 @@ import RecentlyViewedCard from "../components/cards/RecentlyViewedCard";
 import data from "../data/recently-viewed";
 import { BottomTabParamList, RootStackParamList } from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
+import MiniMap from "../components/cards/MiniMap";
 
 interface Props {
   navigation: CompositeNavigationProp<
@@ -44,6 +45,12 @@ const HomeScreen: React.FC<Props> = ({ navigation, route }) => {
           keyExtractor={(item) => item.id.toString()}
           showsHorizontalScrollIndicator={false}
         />
+      </View>
+      <Separator />
+      <Text style={styles.title}>Explore & Discover</Text>
+      <Separator />
+      <View>
+        <MiniMap />
       </View>
     </Container>
   );
