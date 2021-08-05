@@ -2,6 +2,9 @@ import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
+import { CompositeNavigationProp, RouteProp } from "@react-navigation/native";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 import Color from "../constants/Color";
 import Header from "../components/Header";
@@ -9,12 +12,21 @@ import Layout from "../constants/Layout";
 import Container from "../layout/Container";
 import { example } from "../assets";
 import Separator from "../components/Separator";
+import { BottomTabParamList, RootStackParamList } from "../types";
 
-const Drug = () => {
+interface Props {
+  navigation: CompositeNavigationProp<
+    BottomTabNavigationProp<BottomTabParamList, "Home">,
+    StackNavigationProp<RootStackParamList>
+  >;
+  route: RouteProp<RootStackParamList, "Drug">;
+}
+
+const Drug: React.FC<Props> = ({ navigation, route }) => {
   return (
     <Container style={styles.container} isScrollable additionalPaddingTop={0}>
       <View style={styles.header}>
-        <Header iconColor="secondaryText" />
+        <Header iconColor="gray" />
         <View style={styles.imageContainer}>
           <Image resizeMode="contain" style={styles.image} source={example} />
         </View>
@@ -40,6 +52,7 @@ const Drug = () => {
         <Separator marginVertical={8} />
         <View>
           <TouchableOpacity
+            onPress={() => navigation.navigate("Map")}
             style={[styles.button, { backgroundColor: Color.primary }]}
           >
             <Text style={[styles.buttonText, { color: Color.white }]}>
@@ -49,6 +62,7 @@ const Drug = () => {
           </TouchableOpacity>
           <Separator marginVertical={4} />
           <TouchableOpacity
+            onPress={() => navigation.navigate("Medication")}
             style={[styles.button, { backgroundColor: Color.secondary }]}
           >
             <Text style={[styles.buttonText, { color: Color.primary }]}>
