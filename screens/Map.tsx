@@ -6,6 +6,7 @@ import { FlatList } from "react-native-gesture-handler";
 import MapView from "react-native-maps";
 import PharmacyCard from "../components/cards/PharmacyCard";
 import Separator from "../components/Separator";
+import Color from "../constants/Color";
 
 import Layout from "../constants/Layout";
 import Container from "../layout/Container";
@@ -14,20 +15,22 @@ export default function MapScreen() {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} additionalPaddingTop={0}>
       <MapView style={styles.map} />
       <BottomSheet
         ref={bottomSheetRef}
         index={0}
         snapPoints={["30%", "50%", "95%"]}
+        backgroundComponent={({ style }) => (
+          <View style={[styles.customModal, style]} />
+        )}
       >
         <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
-          <FlatList
-            data={[...Array(10).keys()]}
-            renderItem={() => <PharmacyCard />}
-            keyExtractor={(item) => item.toString()}
-            ItemSeparatorComponent={() => <Separator marginVertical={6} />}
-          />
+          <Text style={styles.title}>Pharmacy Nearby</Text>
+          <Separator marginVertical={4} />
+          {[...Array(10).keys()].map((item) => (
+            <PharmacyCard key={item} />
+          ))}
         </BottomSheetScrollView>
       </BottomSheet>
     </Container>
@@ -40,8 +43,8 @@ const styles = StyleSheet.create({
     backgroundColor: "grey",
   },
   contentContainer: {
-    paddingTop: 8,
-    paddingHorizontal: 18,
+    paddingTop: 12,
+    paddingHorizontal: 24,
   },
   map: {
     width: Layout.window.width,
@@ -49,6 +52,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "inter-bold",
-    fontSize: 22,
+    fontSize: 24,
+    marginBottom: 16,
+  },
+  customModal: {
+    backgroundColor: "white",
+    borderRadius: 36,
   },
 });

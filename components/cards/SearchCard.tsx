@@ -6,7 +6,7 @@ import Color from "../../constants/Color";
 import Layout from "../../constants/Layout";
 
 interface Props {
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 const SearchCard: React.FC<Props> = ({ onPress }) => {
@@ -34,6 +34,7 @@ export default SearchCard;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     width: "100%",
     flexDirection: "row",
   },
