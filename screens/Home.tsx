@@ -12,7 +12,7 @@ import RecentlyViewedCard from "../components/cards/RecentlyViewedCard";
 import data from "../data/recently-viewed";
 import { BottomTabParamList, RootStackParamList } from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
-import MiniMap from "../components/cards/MiniMap";
+import MiniMap from "../components/MiniMap";
 import SearchInput from "../components/inputs/SearchInput";
 import { TouchableOpacity } from "react-native";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { notFound } from "../../assets";
+import { notFound } from "../assets";
 
 const NotFound = () => {
   return (

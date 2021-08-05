@@ -10,7 +10,7 @@ import SearchInput from "../components/inputs/SearchInput";
 import Container from "../layout/Container";
 import { RootStackParamList } from "../types";
 import Separator from "../components/Separator";
-import NotFound from "../components/cards/NotFound";
+import NotFound from "../components/NotFound";
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, "Drug">;

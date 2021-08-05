@@ -20,4 +20,5 @@ export default {
   secondary,
   secondary_light,
   tertiary,
+  red: "#FF3B30",
 };

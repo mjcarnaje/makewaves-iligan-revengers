@@ -5,7 +5,7 @@ import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import MapView from "react-native-maps";
 
-import Color from "../../constants/Color";
+import Color from "../constants/Color";
 
 interface Props {
   onPress: () => void;
