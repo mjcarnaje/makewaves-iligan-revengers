@@ -50,7 +50,7 @@ const HomeScreen: React.FC<Props> = ({ navigation, route }) => {
       <Text style={styles.title}>Explore & Discover</Text>
       <Separator />
       <View>
-        <MiniMap />
+        <MiniMap onPress={() => navigation.navigate("Map")} />
       </View>
     </Container>
   );

@@ -27,11 +27,6 @@ export default function BottomTabNavigator() {
       icon: "home",
     },
     {
-      name: "Search",
-      component: SearchScreen,
-      icon: "search",
-    },
-    {
       name: "Map",
       component: MapScreen,
       icon: "map",
@@ -86,6 +81,7 @@ export default function BottomTabNavigator() {
 
 const styles = StyleSheet.create({
   tabStyle: {
+    position: "absolute",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     height: 60,

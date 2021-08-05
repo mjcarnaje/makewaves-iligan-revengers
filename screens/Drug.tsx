@@ -31,7 +31,7 @@ const Drug: React.FC<Props> = ({ navigation, route }) => {
           <Image resizeMode="contain" style={styles.image} source={example} />
         </View>
       </View>
-      <Separator marginVertical={8} />
+      <Separator marginVertical={4} />
       <View style={styles.content}>
         <View>
           <Text style={styles.title}>BRAND X VITAMIN C</Text>
