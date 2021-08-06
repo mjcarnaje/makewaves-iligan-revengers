@@ -52,11 +52,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "inter-bold",
-    fontSize: 24,
+    fontSize: 26,
     marginBottom: 16,
   },
   customModal: {
     backgroundColor: "white",
-    borderRadius: 36,
+    borderRadius: 28,
   },
 });

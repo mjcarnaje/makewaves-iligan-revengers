@@ -5,11 +5,12 @@ const secondary_light = "#E6EEFF";
 const tertiary = "#FFCE50";
 
 export default {
+  white: "#FFF",
   black: "#000",
   text: "#1E1F20",
-  gray: "#AAAAAA",
+  text_secondary: "#444",
+  gray: "#AAA",
   light_gray: "#E7E7E7",
-  white: "#fff",
   offWhite: "#F7F7F7",
   tint: primary,
   bottomTabBackground: "#F1F1F1",

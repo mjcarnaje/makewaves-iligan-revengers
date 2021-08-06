@@ -26,7 +26,7 @@ const Drug: React.FC<Props> = ({ navigation, route }) => {
   return (
     <Container style={styles.container} isScrollable additionalPaddingTop={0}>
       <View style={styles.header}>
-        <Header iconColor="gray" />
+        <Header />
         <View style={styles.imageContainer}>
           <Image resizeMode="contain" style={styles.image} source={example} />
         </View>
@@ -34,12 +34,13 @@ const Drug: React.FC<Props> = ({ navigation, route }) => {
       <Separator marginVertical={4} />
       <View style={styles.content}>
         <View>
-          <Text style={styles.title}>BRAND X VITAMIN C</Text>
-          <Text style={styles.type}>SYRUP</Text>
+          <Text style={styles.title}>Antibacterial Hand Gel</Text>
+          <Text style={styles.type}>SANITIZER</Text>
         </View>
         <Separator marginVertical={4} />
         <View>
           <Text style={styles.descriptionLabel}>Description</Text>
+          <Separator marginVertical={4} />
           <Text style={styles.description}>
             Vitamins are compounds that you must have for growth and health.
             They are needed in small amounts only and are usually available in
@@ -49,7 +50,7 @@ const Drug: React.FC<Props> = ({ navigation, route }) => {
             a day.
           </Text>
         </View>
-        <Separator marginVertical={8} />
+        <Separator marginVertical={16} />
         <View>
           <TouchableOpacity
             onPress={() => navigation.navigate("Map")}
@@ -58,9 +59,9 @@ const Drug: React.FC<Props> = ({ navigation, route }) => {
             <Text style={[styles.buttonText, { color: Color.white }]}>
               Find Nearby Availability
             </Text>
-            <Feather name="map" size={18} color={Color.white} />
+            <Feather name="map" size={24} color={Color.white} />
           </TouchableOpacity>
-          <Separator marginVertical={4} />
+          <Separator marginVertical={6} />
           <TouchableOpacity
             onPress={() => navigation.navigate("Medication")}
             style={[styles.button, { backgroundColor: Color.secondary }]}
@@ -68,7 +69,7 @@ const Drug: React.FC<Props> = ({ navigation, route }) => {
             <Text style={[styles.buttonText, { color: Color.primary }]}>
               Add to Medication List
             </Text>
-            <Feather name="arrow-right" size={18} color={Color.primary} />
+            <Feather name="arrow-right" size={24} color={Color.primary} />
           </TouchableOpacity>
         </View>
       </View>
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
   header: {
     padding: 16,
     width: Layout.window.width,
-    aspectRatio: 1,
+    aspectRatio: 4 / 3.5,
     backgroundColor: Color.secondary,
     borderBottomRightRadius: 28,
     borderBottomLeftRadius: 28,
@@ -104,26 +105,34 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "inter-bold",
-    fontSize: 28,
+    fontSize: 24,
+    color: Color.text_secondary,
   },
   type: {
     fontFamily: "inter-bold",
+    fontSize: 14,
+    color: Color.text_secondary,
   },
   descriptionLabel: {
     fontFamily: "inter-bold",
     fontSize: 18,
+    color: Color.text_secondary,
   },
   description: {
     fontFamily: "inter-medium",
+    fontSize: 15,
+    color: Color.text_secondary,
   },
   button: {
     borderRadius: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
   },
   buttonText: {
     fontFamily: "inter-bold",
+    fontSize: 14,
   },
 });

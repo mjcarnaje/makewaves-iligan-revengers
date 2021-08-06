@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 import MapView from "react-native-maps";
 
 import Color from "../constants/Color";
@@ -19,7 +18,7 @@ const MiniMap: React.FC<Props> = ({ onPress }) => {
         <Text style={styles.buttonText}>
           Discover Nearby Pharmacies in your Area
         </Text>
-        <Feather name="arrow-right" size={24} color={Color.primary} />
+        <Feather name="arrow-right" size={26} color={Color.primary} />
       </TouchableOpacity>
     </View>
   );
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
     height: 154,
   },
   button: {
-    paddingHorizontal: 24,
+    paddingHorizontal: 18,
     paddingVertical: 10,
     flexDirection: "row",
     alignItems: "center",
@@ -49,6 +48,6 @@ const styles = StyleSheet.create({
     width: "75%",
     color: Color.primary,
     fontFamily: "inter-bold",
-    fontSize: 18,
+    fontSize: 17,
   },
 });

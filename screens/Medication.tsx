@@ -24,7 +24,7 @@ export default function MedicationScreen() {
           data={[...Array(5).keys()]}
           keyExtractor={(item) => item.toString()}
           renderItem={() => <SearchCard />}
-          ItemSeparatorComponent={() => <Separator marginVertical={6} />}
+          ItemSeparatorComponent={() => <Separator marginVertical={8} />}
           showsVerticalScrollIndicator={false}
         />
       </View>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     padding: 16,
     width: Layout.window.width,
     height: Layout.window.height / 4 + 80,
-    backgroundColor: Color.tertiary,
+    backgroundColor: Color.primary_light,
   },
   title: {
     fontSize: 34,
@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
     left: 72 - 24,
   },
   content: {
-    padding: 16,
+    paddingHorizontal: 28,
     flex: 1,
     minHeight: Layout.window.height - Layout.window.height / 4,
     marginTop: -80,
-    paddingTop: 72,
+    paddingTop: 72 - 18,
     backgroundColor: Color.white,
     borderTopLeftRadius: 72,
   },
