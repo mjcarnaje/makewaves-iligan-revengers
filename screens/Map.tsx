@@ -1,18 +1,24 @@
-import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
-import React, { useCallback, useMemo, useRef } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import React, { useCallback, useRef } from "react";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
 
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
+import { useFocusEffect } from "@react-navigation/native";
 import MapView from "react-native-maps";
+
 import PharmacyCard from "../components/cards/PharmacyCard";
 import Separator from "../components/Separator";
-import Color from "../constants/Color";
-
 import Layout from "../constants/Layout";
 import Container from "../layout/Container";
 
 export default function MapScreen() {
   const bottomSheetRef = useRef<BottomSheet>(null);
+
+  useFocusEffect(
+    useCallback(() => {
+      StatusBar.setHidden(true);
+      return () => StatusBar.setHidden(false, "none");
+    }, [])
+  );
 
   return (
     <Container style={styles.container} additionalPaddingTop={0}>

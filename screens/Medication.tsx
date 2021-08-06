@@ -1,8 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
-import SearchCard from "../components/cards/SearchCard";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 
+import SearchCard from "../components/cards/SearchCard";
 import Header from "../components/Header";
 import Separator from "../components/Separator";
 import Color from "../constants/Color";

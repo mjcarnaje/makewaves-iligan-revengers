@@ -1,20 +1,24 @@
 import React from "react";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 import { CompositeNavigationProp, RouteProp } from "@react-navigation/native";
-
-import Greetings from "../components/Greetings";
-import Container from "../layout/Container";
-import Separator from "../components/Separator";
-import RecentlyViewedCard from "../components/cards/RecentlyViewedCard";
-
-import data from "../data/recently-viewed";
-import { BottomTabParamList, RootStackParamList } from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
-import MiniMap from "../components/MiniMap";
+
+import RecentlyViewedCard from "../components/cards/RecentlyViewedCard";
+import Greetings from "../components/Greetings";
 import SearchInput from "../components/inputs/SearchInput";
-import { TouchableOpacity } from "react-native";
+import MiniMap from "../components/MiniMap";
+import Separator from "../components/Separator";
+import data from "../data/recently-viewed";
+import Container from "../layout/Container";
+import { BottomTabParamList, RootStackParamList } from "../types";
 
 interface Props {
   navigation: CompositeNavigationProp<

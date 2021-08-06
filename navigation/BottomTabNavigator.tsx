@@ -7,7 +7,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/Home";
 import { BottomTabParamList } from "../types";
 import Color from "../constants/Color";
-import SearchScreen from "../screens/Search";
 import MapScreen from "../screens/Map";
 import MedicationScreen from "../screens/Medication";
 
