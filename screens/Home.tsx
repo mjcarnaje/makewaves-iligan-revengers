@@ -41,7 +41,7 @@ const HomeScreen: React.FC<Props> = ({ navigation, route }) => {
           <Text style={styles.readMore}>Read more</Text>
         </TouchableOpacity>
       </View>
-      <Separator />
+      <Separator marginVertical={10} />
       <View>
         <FlatList
           horizontal
@@ -61,10 +61,8 @@ const HomeScreen: React.FC<Props> = ({ navigation, route }) => {
       </View>
       <Separator />
       <Text style={styles.title}>Explore & Discover</Text>
-      <Separator />
-      <View>
-        <MiniMap onPress={() => navigation.navigate("Map")} />
-      </View>
+      <Separator marginVertical={10} />
+      <MiniMap onPress={() => navigation.navigate("Map")} />
     </Container>
   );
 };
@@ -73,6 +71,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 16,
   },
   title: {

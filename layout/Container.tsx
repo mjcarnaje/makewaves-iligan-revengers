@@ -36,7 +36,7 @@ const Container: React.FC<Props> = ({
           >
             {isScrollable ? (
               <ScrollView
-                contentContainerStyle={{ paddingBottom: 48 }}
+                contentContainerStyle={{ flexGrow: 1, paddingBottom: 48 }}
                 style={[styles.layout, style]}
               >
                 {children}
