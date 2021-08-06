@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
   },
   content: {
-    padding: 12,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
   },
   title: {
     fontFamily: "inter-bold",

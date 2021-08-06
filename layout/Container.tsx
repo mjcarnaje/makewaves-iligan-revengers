@@ -7,8 +7,9 @@ import Color from "../constants/Color";
 type Props = {
   children: React.ReactNode;
   style?: ViewStyle;
-  isScrollable?: boolean;
   additionalPaddingTop?: number;
+  offInsetTop?: boolean;
+  isScrollable?: boolean;
 };
 
 const Container: React.FC<Props> = ({
@@ -16,31 +17,36 @@ const Container: React.FC<Props> = ({
   style,
   additionalPaddingTop = 16,
   isScrollable,
+  offInsetTop,
 }) => {
   return (
     <SafeAreaInsetsContext.Consumer>
-      {(insets) => (
-        <View
-          style={[
-            {
-              flex: 1,
-              backgroundColor: Color.white,
-              paddingTop: (insets?.top || 0) + additionalPaddingTop,
-            },
-          ]}
-        >
-          {isScrollable ? (
-            <ScrollView
-              contentContainerStyle={{ paddingBottom: 48 }}
-              style={[styles.layout, style]}
-            >
-              {children}
-            </ScrollView>
-          ) : (
-            <View style={[styles.layout, style]}>{children}</View>
-          )}
-        </View>
-      )}
+      {(insets) => {
+        const topInset = offInsetTop ? 0 : insets?.top || 0;
+
+        return (
+          <View
+            style={[
+              {
+                flex: 1,
+                backgroundColor: Color.white,
+                paddingTop: topInset + additionalPaddingTop,
+              },
+            ]}
+          >
+            {isScrollable ? (
+              <ScrollView
+                contentContainerStyle={{ paddingBottom: 48 }}
+                style={[styles.layout, style]}
+              >
+                {children}
+              </ScrollView>
+            ) : (
+              <View style={[styles.layout, style]}>{children}</View>
+            )}
+          </View>
+        );
+      }}
     </SafeAreaInsetsContext.Consumer>
   );
 };

@@ -7,7 +7,6 @@ import MapView from "react-native-maps";
 
 import PharmacyCard from "../components/cards/PharmacyCard";
 import Separator from "../components/Separator";
-import Layout from "../constants/Layout";
 import Container from "../layout/Container";
 
 export default function MapScreen() {
@@ -21,12 +20,12 @@ export default function MapScreen() {
   );
 
   return (
-    <Container style={styles.container} additionalPaddingTop={0}>
+    <Container style={styles.container} offInsetTop additionalPaddingTop={0}>
       <MapView style={styles.map} />
       <BottomSheet
         ref={bottomSheetRef}
         index={0}
-        snapPoints={["30%", "50%", "95%"]}
+        snapPoints={["30%", "50%", "90%"]}
         backgroundComponent={({ style }) => (
           <View style={[styles.customModal, style]} />
         )}
@@ -53,8 +52,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   map: {
-    width: Layout.window.width,
-    height: Layout.window.height,
+    ...StyleSheet.absoluteFillObject,
   },
   title: {
     fontFamily: "inter-bold",

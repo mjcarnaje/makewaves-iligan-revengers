@@ -8,7 +8,8 @@ interface Props {
 const Greetings: React.FC<Props> = ({ name }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{`Good morning, ${name}`}</Text>
+      <Text style={styles.goodMorning}>Good Morning,</Text>
+      <Text style={styles.name}>{name}</Text>
     </View>
   );
 };
@@ -17,9 +18,15 @@ export default Greetings;
 
 const styles = StyleSheet.create({
   container: {},
-  text: {
+  goodMorning: {
+    fontFamily: "inter-bold",
+    fontSize: 26,
+    letterSpacing: -0.5,
+  },
+  name: {
     fontFamily: "inter-bold",
     fontSize: 24,
     letterSpacing: -0.5,
+    lineHeight: 26,
   },
 });
