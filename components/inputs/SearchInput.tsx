@@ -24,42 +24,46 @@ interface Props {
   setSearchText?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchInput: React.FC<Props> = ({
-  navigation,
-  searchText,
-  setSearchText,
-}) => {
-  if (navigation) {
+const SearchInput = React.forwardRef<TextInput, Props>(
+  ({ navigation, searchText, setSearchText }, ref) => {
+    if (navigation) {
+      return (
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Search")}
+          style={styles.inputContainer}
+        >
+          <Text style={styles.text}>What are you looking for?</Text>
+          <Feather
+            style={styles.icon}
+            name="search"
+            size={24}
+            color={Color.gray}
+          />
+        </TouchableOpacity>
+      );
+    }
+
     return (
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Search")}
-        style={styles.inputContainer}
-      >
-        <Text style={styles.text}>What are you looking for?</Text>
+      <View style={styles.inputContainer}>
+        <TextInput
+          ref={ref}
+          value={searchText}
+          onChangeText={(text) => {
+            if (setSearchText) setSearchText(text);
+          }}
+          placeholder="What are you looking for?"
+          style={styles.input}
+        />
         <Feather
           style={styles.icon}
           name="search"
           size={24}
           color={Color.gray}
         />
-      </TouchableOpacity>
+      </View>
     );
   }
-
-  return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        value={searchText}
-        onChangeText={(text) => {
-          if (setSearchText) setSearchText(text);
-        }}
-        placeholder="What are you looking for?"
-        style={styles.input}
-      />
-      <Feather style={styles.icon} name="search" size={24} color={Color.gray} />
-    </View>
-  );
-};
+);
 
 export default SearchInput;
 

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
 
-import { RouteProp } from "@react-navigation/native";
+import { RouteProp, useIsFocused } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import SearchCard from "../components/cards/SearchCard";
@@ -18,12 +18,20 @@ interface Props {
 }
 
 const SearchScreen: React.FC<Props> = ({ navigation }) => {
+  const isFocused = useIsFocused();
   const [searchText, setSearchText] = useState("");
+  const searchBarRef = useRef<TextInput>(null);
+
+  useEffect(() => {
+    if (isFocused) {
+      searchBarRef?.current?.focus();
+    }
+  }, [isFocused, searchBarRef]);
 
   return (
     <Container style={styles.container} additionalPaddingTop={0}>
       <Header iconColor="gray" />
-      <SearchInput {...{ searchText, setSearchText }} />
+      <SearchInput ref={searchBarRef} {...{ searchText, setSearchText }} />
       <Separator />
       {!!(searchText !== "") && (
         <FlatList
